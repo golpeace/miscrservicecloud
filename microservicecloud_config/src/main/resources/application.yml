@@ -1,0 +1,13 @@
+server:
+  port: 9520
+
+spring:
+  application:
+    name: microservicecloud-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/golpeace/microservicecloud_config.git
+          username: golpeace@163.com
+          password: Zhp422049+**+

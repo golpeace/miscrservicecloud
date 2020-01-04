@@ -1,0 +1,35 @@
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/config/mybatis-config.xml
+  type-aliases-package: com.miscloud.entiy
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+spring:
+  application:
+    name: microservicecloud-provider-dept
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/pinyougou?characterEncoding=utf8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+  redis:
+    host: 192.168.64.129
+    port: 6379
+
+eureka:
+  instance:
+    instance-id: microservicecloud_provider_dept_8001
+    prefer-ip-address: true
+
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+
+info:
+  app.name: zhpDemo
+  company.name: www.cloud.demo
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$

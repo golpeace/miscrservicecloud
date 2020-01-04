@@ -1,0 +1,28 @@
+server:
+  port: 9527
+
+spring:
+    application:
+      name: microservicecloud-zuul-gateway  #服务暴露在Eureka Server中的名称
+
+eureka:
+    instance:
+      instance-id: microservicecloud-zuul-gateway-9527   #服务暴露在Eureka Server中的服务ID是什么
+      prefer-ip-address: true
+
+    client:
+      service-url:   #zuul作为服务也需要注册进Eureka 所以指定Eureka的集群地址
+        defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+
+info:
+    app.name: zhpzuulgateway
+    company.name: www.cloud.demo.consumer
+    build.artifactId: $project.artifactId$
+    build.version: $project.version$
+
+zuul:
+  ignored-services: "*"
+  routes:
+    dept-provider.serviceId: microservicecloud-provider-dept
+    dept-provider.path: /deptprovider/**
+

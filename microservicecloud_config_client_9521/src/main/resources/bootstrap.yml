@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: microservicecloud-config-client # 表示这个配置文件需要从GitHub上面寻找的资源名称，注意没有后缀名。
+      profile: dev    # 配置文件是多配置，表示选择的是哪个配置项
+      label: master   # 选择哪个分支
+      uri: http://localhost:9520  # 访问配置中心服务端的地址

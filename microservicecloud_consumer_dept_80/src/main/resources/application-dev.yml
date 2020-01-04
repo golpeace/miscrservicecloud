@@ -1,0 +1,22 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: microservicecloud-consumer-dept-80
+
+eureka:
+  instance:
+    instance-id: microservicecloud_consumer-dept_80
+    prefer-ip-address: true
+
+  client:
+    register-with-eureka: false  #因为自己是消费者，所以不需要将自己注册进Eureka ，自己需要访问其他服务，所以获取服务的设置需要设置为true;
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+
+info:
+  app.name: zhpConsumer
+  company.name: www.cloud.demo.consumer
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
